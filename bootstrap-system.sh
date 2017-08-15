@@ -41,12 +41,12 @@ elif [ -f /usr/bin/apt-get ]; then
   elif [ -f /etc/apt/sources.list.d/base.list ]; then
     sed -i 's,main,main contrib non-free,g' /etc/apt/sources.list.d/base.list
   fi
-  apt-get update
+  apt-get -y update
   apt-get -y install dirmngr
   mkdir -p /etc/apt/sources.list.d
   echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' > /etc/apt/sources.list.d/ansible.list
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-  apt-get update
+  apt-get -y update
   apt-get -y install ansible git
 elif [ -f /usr/bin/yum ]; then
   yum -y update
