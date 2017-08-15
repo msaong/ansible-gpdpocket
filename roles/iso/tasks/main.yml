@@ -269,7 +269,7 @@
         -no-emul-boot -boot-load-size 4 -boot-info-table -isohybrid-mbr roles/iso/files/isohdpfx.bin \
         -eltorito-alt-boot -e $(sed 's,/var/tmp/bootstrap-iso/,,' <<< "{{ efi_image.files.0.path }}") -no-emul-boot -isohybrid-gpt-basdat \
         -output /root/bootstrap.iso /var/tmp/bootstrap-iso
-		
+
 - name: re-assemble iso
   when: ansible_os_family == 'Antergos' or ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux' or ansible_os_family == 'Kali' or ansible_os_family == 'Linuxmint' or ansible_os_family == 'Ubuntu' or ansible_os_family == 'CentOS' or ansible_os_family == 'Fedora' or ansible_os_family == 'RedHat' or ansible_os_family == 'Gentoo'
   shell: |
@@ -277,4 +277,4 @@
         -eltorito-boot isolinux/isolinux.bin -eltorito-catalog isolinux/boot.cat \
         -no-emul-boot -boot-load-size 4 -boot-info-table -isohybrid-mbr roles/iso/files/isohdpfx.bin \
         -eltorito-alt-boot -e $(sed "s,/var/tmp/bootstrap-iso/,," <<< "{{ efi_image.files.0.path }}") -no-emul-boot -isohybrid-gpt-basdat \
-	-output /root/bootstrap.iso /var/tmp/bootstrap-iso
+        -output /root/bootstrap.iso /var/tmp/bootstrap-iso
