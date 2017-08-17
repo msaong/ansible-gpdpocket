@@ -49,7 +49,7 @@ elif [ -f /usr/bin/apt-get ]; then
   apt-get -y update
   apt-get -y install ansible git
 elif [ -f /usr/bin/yum ]; then
-  yum -y update yum -y update --setopt sslverify=false
+  yum -y update --setopt sslverify=false
   yum -y install ansible git
 elif [ -f /usr/sbin/emerge ]; then
   emerge --sync
