@@ -267,6 +267,15 @@
     state: absent
   tags:
   - iso
+  
+  - name: move squashfs working directory
+  shell: |
+    mv -f /var/tmp/bootstrap-iso/squashfs /var/tmp/squashfs
+  args:
+    executable: /bin/bash
+  failed_when: False
+  tags:
+- iso
 
 - name: re-assemble iso
   shell: |
