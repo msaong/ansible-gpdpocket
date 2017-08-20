@@ -260,15 +260,8 @@
   register: iso_label
   tags:
   - iso
-
-- name: remove squashfs working directory
-  file:
-    path: /var/tmp/bootstrap-iso/squashfs
-    state: absent
-  tags:
-  - iso
   
-  - name: move squashfs working directory
+- name: move squashfs working directory
   shell: |
     mv -f /var/tmp/bootstrap-iso/squashfs /var/tmp/squashfs
   args:
